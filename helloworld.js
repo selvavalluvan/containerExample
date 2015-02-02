@@ -1,6 +1,6 @@
 var express = require('express')
 var app = express()
-
+var argv = require('optimist').argv;
 
 app.get('/:id?', function (req, res) {
 
@@ -11,12 +11,5 @@ app.get('/:id?', function (req, res) {
       }
 })
 
-
-var server = app.listen(3000, function () {
-
-      var host = server.address().address
-      var port = server.address().port
-
-      console.log('The app is listening at http://%s:%s', host, port)
-
-})
+app.listen(3000, argv.fe_ip);
+console.log("App listening on port 8080");
